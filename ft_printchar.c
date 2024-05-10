@@ -6,12 +6,12 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 17:20:05 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/08 13:51:04 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:41:30 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_printchar(char c)
 {

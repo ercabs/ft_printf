@@ -6,11 +6,11 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 17:33:18 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/09 11:33:58 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:41:54 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 void	f_prints(char *s)

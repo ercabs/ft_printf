@@ -6,13 +6,13 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:40:53 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/09 12:22:42 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:41:36 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdarg.h>
 #include <stddef.h>
-#include "printf.h"
+#include "ft_printf.h"
 
 int	check(va_list arg, char i)
 {

@@ -6,12 +6,12 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:31:13 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/09 12:39:25 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:41:33 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_print_d(int n)
 {

@@ -6,12 +6,12 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:31:11 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/09 12:38:11 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:41:59 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
