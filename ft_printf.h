@@ -6,17 +6,13 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:59:17 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/09 14:42:29 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:46:33 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-//array to int
-int		ft_atoi(const char *str);
-//int to array
-char	*ft_itoa(int n);
 //print char
 int		ft_printchar(char c);
 //print decimal
