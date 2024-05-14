@@ -6,7 +6,7 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:59:17 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/10 12:46:33 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/14 11:16:57 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_printstr(char *s);
 //print unsigned int
 int		ft_printuni(unsigned int num);
 //print ptr
-int		ft_printp(void *num);
+int		ft_printp(unsigned long long ptr);
 //putnbr
 void	ft_putnbr_fd(int n, int fd);
 

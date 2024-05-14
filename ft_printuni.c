@@ -6,7 +6,7 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:27:27 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/10 12:35:57 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:44:03 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,51 @@
 #include <stdlib.h>
 #include "ft_printf.h"
 
-static int	len_uni(unsigned int n)
+int	ft_len(unsigned	int num)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (n > 0)
+	len = 0;
+	while (num != 0)
 	{
-		n /= 10;
-		i++;
+		len++;
+		num = num / 10;
 	}
-	if (i == 0)
-		i = 1;
-	return (i);
+	return (len);
+}
+
+char	*ft_uitoa(unsigned int n)
+{
+	char	*num;
+	int		len;
+
+	len = ft_len(n);
+	num = (char *)malloc(sizeof(char) * (len + 1));
+	if (!num)
+		return (0);
+	num[len] = '\0';
+	while (n != 0)
+	{
+		num[len - 1] = n % 10 + 48;
+		n = n / 10;
+		len--;
+	}
+	return (num);
 }
 
 int	ft_printuni(unsigned int n)
 {
-	int				i;
-	int				x;
-	char			*base;
-	char			*dest;
+	int		print_length;
+	char	*num;
 
+	print_length = 0;
 	if (n == 0)
+		print_length += write(1, "0", 1);
+	else
 	{
-		write (1, "0", 1);
-		return (1);
+		num = ft_uitoa(n);
+		print_length += ft_printstr(num);
+		free(num);
 	}
-	x = len_uni(n);
-	i = 0;
-	dest = malloc(sizeof(char) * (x + 1));
-	base = "0123456789";
-	while (n > 0)
-	{
-		dest[i] = base[n % 10];
-		n /= 10;
-		i ++;
-	}
-	dest[i] = '\0';
-	while (i-- > 0)
-		ft_printchar(dest[i]);
-	free(dest);
-	return (x);
+	return (print_length);
 }

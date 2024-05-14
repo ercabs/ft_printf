@@ -6,73 +6,60 @@
 /*   By: ecabaret <ecabaret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:57:21 by ecabaret          #+#    #+#             */
-/*   Updated: 2024/05/09 14:41:50 by ecabaret         ###   ########.fr       */
+/*   Updated: 2024/05/14 11:36:59 by ecabaret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
-#include <stdlib.h>
 #include <inttypes.h>
 
-static int	ft_size_of_ptr(unsigned long long n)
+int	ft_lenp(uintptr_t num)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (n > 0)
+	len = 0;
+	while (num != 0)
 	{
-		n /= 16;
-		i++;
+		len++;
+		num = num / 16;
 	}
-	if (i == 0)
-		i = 1;
-	return (i);
+	return (len);
 }
 
-static int	ft_write_ptr(uintptr_t ptr)
+void	ft_put_ptr(uintptr_t num)
 {
-	unsigned long long		i;
-	unsigned long long		n;
-	char					*dest;
-	char					*base_hexa;
-
-	i = 0;
-	n = (unsigned long long)ptr;
-	dest = malloc(sizeof(char) * (ft_size_of_ptr(n) + 1));
-	base_hexa = "0123456789abcdef";
-	while (n > 0)
+	if (num >= 16)
 	{
-		dest[i] = base_hexa[n % 16];
-		n /= 16;
-		i ++;
+		ft_put_ptr(num / 16);
+		ft_put_ptr(num % 16);
 	}
-	dest[i] = '\0';
-	n = i;
-	while (i > 0)
+	else
 	{
-		i --;
-		ft_printchar(dest[i]);
+		if (num <= 9)
+			ft_printchar((num + '0'));
+		else
+			ft_printchar((num - 10 + 'a'));
 	}
-	free(dest);
-	return ((int)n + 2);
 }
 
-int	ft_printp(void *ptr)
+int	ft_printp(unsigned long long ptr)
 {
-	uintptr_t	n;
+	int	len;
 
-	n = (uintptr_t)ptr;
+	len = 0;
 	if (ptr == 0)
 	{
-		write(1, "(nil)", 5);
+		len += write(1, "(nil)", 5);
 		return (5);
 	}
 	else
 	{
-		write(1, "0x", 2);
-		return (ft_write_ptr(n));
+		len += write(1, "0x", 2);
+		ft_put_ptr(ptr);
+		len += ft_lenp(ptr);
 	}
+	return (len);
 }
 
 // int	main(void)
